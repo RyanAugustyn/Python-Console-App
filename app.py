@@ -36,7 +36,7 @@ def __repr__(self):
 class TreeSchema(ma.Schema):
     id = fields.Integer(primary_key = True)
     name = fields.String()
-    type = fields.Bool()
+    type = fields.String()
     class Meta:
         fields = ("id", "name", "type")
 
@@ -44,7 +44,7 @@ class TreeSchema(ma.Schema):
     def create_tree(self, data, **kwargs):
         return Tree(**data)
 
-tree_schema = TreeSchema
+tree_schema = TreeSchema()
 trees_schema = TreeSchema(many=True)
 # Resources
 class TreeListResource(Resource):
